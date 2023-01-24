@@ -97,13 +97,13 @@ public class Create_new_user_page {
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(200));
 		wait.until(ExpectedConditions.visibilityOf(lastName));
 		//lastName.click();
-	    lastName.sendKeys("5");
+	    lastName.sendKeys("6");
 	}
 	public void enterEmail() {
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(200));
 		wait.until(ExpectedConditions.visibilityOf(email));
 		//email.click();
-	    email.sendKeys("user5@gmail.com");
+	    email.sendKeys("user6@gmail.com");
 	}
 	public void phone() {
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(200));

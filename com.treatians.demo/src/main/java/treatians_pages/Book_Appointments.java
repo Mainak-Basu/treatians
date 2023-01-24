@@ -3,6 +3,7 @@ package treatians_pages;
 import java.time.Duration;
 import java.util.Arrays;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.Rectangle;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
@@ -11,11 +12,13 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import generic_utilities.ReadExcel;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AndroidFindBys;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class Book_Appointments {
+public class Book_Appointments extends ReadExcel{
 	private AndroidDriver driver;
 	public Book_Appointments(AndroidDriver driver) {
 	this.driver=driver;	
@@ -36,17 +39,19 @@ public class Book_Appointments {
     public WebElement my_appointments;
 	@AndroidFindBy(xpath="//android.view.View[@content-desc=\"body Doctors\"]/android.view.View")
     public WebElement doctors;
-	@AndroidFindBy(xpath="//android.view.View/android.view.View[2]/android.view.View/android.widget.Button")
+	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Book Appointment\")")
     public WebElement book_appointment;
-	@AndroidFindBy(xpath="//android.view.View[5]/android.widget.TextView[5]")
+	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"25\")")
     public WebElement today;
-	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[2]/android.app.Dialog/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.view.View[3]/android.widget.Button")
-    public WebElement slot;
-	@AndroidFindBy(xpath="//android.view.View[2]/android.app.Dialog/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.Button")
-    public WebElement book_appointment_final;
+	@AndroidFindBy(uiAutomator = "new UiSelector().className(android.widget.Button).instance(0)")
+	public WebElement slotwhenarrownotvisible;
+	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"chevron back\")")
+	public WebElement arrow;
+	@AndroidFindBy(uiAutomator = "new UiSelector().className(android.widget.Button).instance(2)")
+	public WebElement slotwhenarrowvisible;
 	@AndroidFindBy(xpath="//android.view.View[1]/android.view.View/android.view.View/android.widget.EditText")
     public WebElement search_doctor;
-	@AndroidFindBy(xpath="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[1]")
+	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Dr. doctor 1\")")
     public WebElement doctor;
 	@AndroidFindBy(xpath="//android.view.View[8]/android.view.View/android.view.View/android.view.View")
     public WebElement patient_log_out;
@@ -62,6 +67,9 @@ public class Book_Appointments {
 	
 	
 	public void login() {
+		ReadExcel obj = new ReadExcel();
+		String un =obj.RExcel("user_credential", 1, 0);
+		String pw =obj.RExcel("user_credential", 1, 1);
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(menu)));
 		menu.click();
@@ -70,10 +78,10 @@ public class Book_Appointments {
 		login.click();
 		WebDriverWait wait1 = new WebDriverWait(driver,Duration.ofSeconds(20));
 		wait1.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(email_text_field)));
-		email_text_field.sendKeys("user1@gmail.com");
+		email_text_field.sendKeys(un);
 		WebDriverWait wait2 = new WebDriverWait(driver,Duration.ofSeconds(20));
 		wait2.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(password_text_field)));
-		password_text_field.sendKeys("password");
+		password_text_field.sendKeys(pw);
 		signin.click();
 		}
 	public void book_appointment(){
@@ -100,22 +108,28 @@ public class Book_Appointments {
 		PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
 		Sequence scrolla = new Sequence(finger1, 1);
 		scrolla.addAction(finger1.createPointerMove(Duration.ofMillis(0),
-		PointerInput.Origin.viewport(), 300, 1400));
+		PointerInput.Origin.viewport(), 500, 1700));
 		scrolla.addAction(finger1.createPointerDown(0));
-		scrolla.addAction(finger1.createPointerMove(Duration.ofMillis(2000),
-		PointerInput.Origin.viewport(),300, 400));
+		scrolla.addAction(finger1.createPointerMove(Duration.ofMillis(500),
+		PointerInput.Origin.viewport(),500, 300));
 		scrolla.addAction(finger1.createPointerUp(0));
 		driver.perform(Arrays.asList(scrolla));
-		//WebDriverWait wait7 = new WebDriverWait(driver,Duration.ofSeconds(200));
-		//wait7.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(slot)));
-		slot.click();
+		try {
+		if(arrow.isDisplayed()) {
+			slotwhenarrowvisible.click();
+		}
+		}
+		catch(NoSuchElementException e) {
+			slotwhenarrownotvisible.click();
+		}
+			
 		WebDriverWait wait8 = new WebDriverWait(driver,Duration.ofSeconds(20));
-		wait8.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(book_appointment_final)));
-		book_appointment_final.click();		
+		wait8.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(book_appointment)));
+		book_appointment.click();		
 	}
 	
 	
-	
+
 	
 	
 	

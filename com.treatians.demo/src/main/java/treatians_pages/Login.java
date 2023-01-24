@@ -53,7 +53,7 @@ public class Login{
 		wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(signin)));
 		signin.click();
 		}
-	public void log() {
+	public void login() {
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(login)));
 		login.click();

@@ -11,7 +11,7 @@ public void logintest() {
 	Login l=new Login(driver);
 	driver.activateApp("com.treatians");
 	l.menu();
-	l.log();
+	l.login();
 	l.enteremail();
 	l.enterpassword();
 	l.signin();
