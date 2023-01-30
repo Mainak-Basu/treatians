@@ -63,13 +63,15 @@ public class Book_Appointments extends ReadExcel{
     public WebElement latest_appointment;
 	@AndroidFindBy(xpath="//android.view.View[2]/android.widget.TextView[1]")
     public WebElement patient_appointment;
+	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Log out\")")
+	public WebElement logout;
 	
 	
 	
 	public void login() {
 		ReadExcel obj = new ReadExcel();
-		String un =obj.RExcel("user_credential", 1, 0);
-		String pw =obj.RExcel("user_credential", 1, 1);
+		String un =obj.RExcel("Sheet 1", 1, 0);
+		String pw =obj.RExcel("Sheet 1", 1, 1);
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(menu)));
 		menu.click();
@@ -125,7 +127,15 @@ public class Book_Appointments extends ReadExcel{
 			
 		WebDriverWait wait8 = new WebDriverWait(driver,Duration.ofSeconds(20));
 		wait8.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(book_appointment)));
-		book_appointment.click();		
+		book_appointment.click();	
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(menu)));
+		menu.click();
+		WebDriverWait waitlo = new WebDriverWait(driver,Duration.ofSeconds(20));
+		waitlo.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(logout)));
+		logout.click();
+		
+		
 	}
 	
 	

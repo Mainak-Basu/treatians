@@ -15,5 +15,8 @@ public void logintest() {
 	l.enteremail();
 	l.enterpassword();
 	l.signin();
+	l.menu();
+	l.logout();
+	driver.terminateApp("com.treatians");
 }
 }

@@ -27,6 +27,8 @@ public class Login{
     public WebElement password_text_field;
 	@AndroidFindBy(xpath="//android.widget.ListView/android.view.View[3]/android.view.View/android.view.View")
     public WebElement signin;
+	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Log out\")")
+	public WebElement logout;
 	
 	
 	public void menu() {
@@ -57,6 +59,11 @@ public class Login{
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(login)));
 		login.click();
+		}
+	public void logout() {
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(logout)));
+		logout.click();
 		}
 	
 }
