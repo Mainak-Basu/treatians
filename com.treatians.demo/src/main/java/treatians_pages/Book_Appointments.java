@@ -37,7 +37,7 @@ public class Book_Appointments extends ReadExcel{
     public WebElement doctors;
 	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Book Appointment\")")
     public WebElement book_appointment;
-	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"1\")")
+	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"2\")")
     public WebElement today;
 	@AndroidFindBy(uiAutomator = "new UiSelector().className(android.widget.Button).instance(0)")
 	public WebElement slotwhenarrownotvisible;
