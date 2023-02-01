@@ -2,20 +2,16 @@ package treatians_pages;
 
 import java.time.Duration;
 import java.util.Arrays;
-
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.Rectangle;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import generic_utilities.ReadExcel;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.AndroidFindBys;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class Book_Appointments extends ReadExcel{
@@ -41,7 +37,7 @@ public class Book_Appointments extends ReadExcel{
     public WebElement doctors;
 	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Book Appointment\")")
     public WebElement book_appointment;
-	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"25\")")
+	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"1\")")
     public WebElement today;
 	@AndroidFindBy(uiAutomator = "new UiSelector().className(android.widget.Button).instance(0)")
 	public WebElement slotwhenarrownotvisible;
@@ -65,48 +61,72 @@ public class Book_Appointments extends ReadExcel{
     public WebElement patient_appointment;
 	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Log out\")")
 	public WebElement logout;
+	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"January 2023\")")
+	public WebElement monthandyear;
+	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"Adil Rizwi\")")
+	public WebElement adil;
 	
 	
-	
-	public void login() {
-		ReadExcel obj = new ReadExcel();
-		String un =obj.RExcel("Sheet 1", 1, 0);
-		String pw =obj.RExcel("Sheet 1", 1, 1);
+	public void click_on_first_doctor() {
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(adil)));
+		adil.click();
+	}
+	public void menu() {
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(menu)));
 		menu.click();
+	}
+		
+		ReadExcel obj = new ReadExcel();
+		String un =obj.RExcel("Sheet 1", 1, 0);
+		String pw =obj.RExcel("Sheet 1", 1, 1);
+		public void login() {
 		WebDriverWait waitl = new WebDriverWait(driver,Duration.ofSeconds(20));
 		waitl.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(login)));
 		login.click();
+		}
+		public void enter_email() {
 		WebDriverWait wait1 = new WebDriverWait(driver,Duration.ofSeconds(20));
 		wait1.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(email_text_field)));
 		email_text_field.sendKeys(un);
+		}
+		public void enter_password() {
 		WebDriverWait wait2 = new WebDriverWait(driver,Duration.ofSeconds(20));
 		wait2.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(password_text_field)));
 		password_text_field.sendKeys(pw);
+		}
+		public void signin() {
 		signin.click();
 		}
-	public void book_appointment(){
-		WebDriverWait waitm = new WebDriverWait(driver,Duration.ofSeconds(20));
-		waitm.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(menu)));
-		menu.click();
+	public void clickdoctors(){
+		
 		WebDriverWait wait2 = new WebDriverWait(driver,Duration.ofSeconds(20));
 		wait2.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(doctors)));
 		doctors.click();
+	}
+	public void search_doctors() {
 		WebDriverWait wait3 = new WebDriverWait(driver,Duration.ofSeconds(20));
 		wait3.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(search_doctor)));
 		search_doctor.click();
-		
 		search_doctor.sendKeys("Do");
+	}
+	public void doctor_click() {
 		WebDriverWait wait4 = new WebDriverWait(driver,Duration.ofSeconds(20));
 		wait4.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(doctor)));
 		doctor.click();
+	}
+	public void click_book_appointment() {
 		WebDriverWait wait5 = new WebDriverWait(driver,Duration.ofSeconds(20));
 		wait5.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(book_appointment)));
 		book_appointment.click();
+	}
+	public void clickdate() {
 		WebDriverWait wait6 = new WebDriverWait(driver,Duration.ofSeconds(20));
 		wait6.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(today)));
 		today.click();
+	}
+	public void clickslot() {
 		PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
 		Sequence scrolla = new Sequence(finger1, 1);
 		scrolla.addAction(finger1.createPointerMove(Duration.ofMillis(0),
@@ -124,7 +144,9 @@ public class Book_Appointments extends ReadExcel{
 		catch(NoSuchElementException e) {
 			slotwhenarrownotvisible.click();
 		}
-			
+	}
+}
+	/*
 		WebDriverWait wait8 = new WebDriverWait(driver,Duration.ofSeconds(20));
 		wait8.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(book_appointment)));
 		book_appointment.click();	
@@ -135,34 +157,6 @@ public class Book_Appointments extends ReadExcel{
 		waitlo.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(logout)));
 		logout.click();
 		
-		
-	}
-	
+		*/
 	
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-}
