@@ -1,0 +1,6 @@
+hi Mainak
+it is an sample pull request
+which we may be use in future while doing git fork
+i havnt done any changes in your code
+approve or reject its all upto you.
+thank you !
