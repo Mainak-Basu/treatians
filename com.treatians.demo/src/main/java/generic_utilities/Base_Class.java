@@ -70,7 +70,8 @@ public class Base_Class {
      // Destroy used object and release memory
         api.End();
         outText.deallocate();
-        pixDestroy(image);              
+        pixDestroy(image);  
+        destFile.delete();
 	}
 	
 			

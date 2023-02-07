@@ -8,15 +8,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.DataProvider;
 
+import generic_utilities.Base_Class;
 import generic_utilities.ReadExcel;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class Login {
-	private AndroidDriver driver;
+public class Login extends Base_Class{
+	
 	public Login(AndroidDriver driver) {
-	this.driver=driver;	
+	
 	PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 }
 	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"menu\")")

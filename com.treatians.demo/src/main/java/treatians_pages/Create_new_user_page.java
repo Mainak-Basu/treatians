@@ -11,14 +11,15 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import generic_utilities.Base_Class;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class Create_new_user_page {
-	private AndroidDriver driver;
+public class Create_new_user_page extends Base_Class {
+	
 	public Create_new_user_page(AndroidDriver driver) {
-	this.driver=driver;	
+	
 	PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 }
 	@AndroidFindBy(uiAutomator = "new UiSelector().text(\"menu\")")

@@ -9,15 +9,17 @@ import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import generic_utilities.Base_Class;
 import generic_utilities.ReadExcel;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class Book_Appointments extends ReadExcel{
-	private AndroidDriver driver;
+public class Book_Appointments extends Base_Class{
+	//private AndroidDriver driver;
 	public Book_Appointments(AndroidDriver driver) {
-	this.driver=driver;	
+	//this.driver=driver;	
 	PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 }
 	

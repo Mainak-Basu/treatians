@@ -6,6 +6,7 @@
       <class name="tests.Book_Appointment_test">
         <methods>
           <include name="teardown"/>
+          <include name="back"/>
           <include name="setup"/>
           <include name="book_ap"/>
         </methods>

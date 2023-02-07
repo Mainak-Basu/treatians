@@ -35,7 +35,7 @@ public class Book_Appointment_test extends Base_Class{
 	public void back() throws InterruptedException {
 		Book_Appointments ba= new Book_Appointments(driver);
 		driver.pressKey(new KeyEvent(AndroidKey.BACK));
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		driver.pressKey(new KeyEvent(AndroidKey.BACK));
 		ba.menu();
 		ba.logout.click();
