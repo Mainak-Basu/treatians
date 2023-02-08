@@ -3,10 +3,7 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="tests.Login_Test"/>
-      <class name="tests.Create_new_user"/>
-      <class name="tests.Open_app"/>
-      <class name="tests.Book_Appointment_test"/>
+      <class name="tests.Tests"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
