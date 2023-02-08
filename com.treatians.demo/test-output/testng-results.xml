@@ -1,29 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="1" total="4" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-02-02T12:30:33 IST" name="Default suite" finished-at="2023-02-02T12:31:13 IST" duration-ms="40460">
+  <suite started-at="2023-02-07T18:26:57 IST" name="Default suite" finished-at="2023-02-07T18:27:50 IST" duration-ms="53548">
     <groups>
     </groups>
-    <test started-at="2023-02-02T12:30:33 IST" name="Default test" finished-at="2023-02-02T12:31:13 IST" duration-ms="40460">
-      <class name="tests.Book_Appointment_test">
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Book_Appointment_test@5efa40fe]" started-at="2023-02-02T12:30:33 IST" name="setup" finished-at="2023-02-02T12:30:41 IST" duration-ms="8256" status="PASS">
+    <test started-at="2023-02-07T18:26:57 IST" name="Default test" finished-at="2023-02-07T18:27:50 IST" duration-ms="53548">
+      <class name="tests.Login_Test">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.Login_Test@660acfb]" started-at="2023-02-07T18:26:57 IST" name="setup" finished-at="2023-02-07T18:27:06 IST" duration-ms="9406" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="book_ap()[pri:1, instance:tests.Book_Appointment_test@5efa40fe]" started-at="2023-02-02T12:30:41 IST" name="book_ap" finished-at="2023-02-02T12:31:08 IST" duration-ms="26564" status="PASS">
+        <test-method signature="logintest(java.lang.String,java.lang.String)[pri:0, instance:tests.Login_Test@660acfb]" started-at="2023-02-07T18:27:07 IST" name="logintest" data-provider="excelTest" finished-at="2023-02-07T18:27:24 IST" duration-ms="16999" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[user1@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[password]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- book_ap -->
-        <test-method signature="back()[pri:2, instance:tests.Book_Appointment_test@5efa40fe]" started-at="2023-02-02T12:31:08 IST" name="back" finished-at="2023-02-02T12:31:13 IST" duration-ms="5379" status="PASS">
+        </test-method> <!-- logintest -->
+        <test-method signature="logintest(java.lang.String,java.lang.String)[pri:0, instance:tests.Login_Test@660acfb]" started-at="2023-02-07T18:27:24 IST" name="logintest" data-provider="excelTest" finished-at="2023-02-07T18:27:37 IST" duration-ms="13358" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[user2@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[password]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- back -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Book_Appointment_test@5efa40fe]" started-at="2023-02-02T12:31:13 IST" name="teardown" finished-at="2023-02-02T12:31:13 IST" duration-ms="143" status="PASS">
+        </test-method> <!-- logintest -->
+        <test-method signature="logintest(java.lang.String,java.lang.String)[pri:0, instance:tests.Login_Test@660acfb]" started-at="2023-02-07T18:27:37 IST" name="logintest" data-provider="excelTest" finished-at="2023-02-07T18:27:50 IST" duration-ms="12808" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[user3@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[password]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logintest -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:tests.Login_Test@660acfb]" started-at="2023-02-07T18:27:50 IST" name="teardown" finished-at="2023-02-07T18:27:50 IST" duration-ms="218" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- tests.Book_Appointment_test -->
+      </class> <!-- tests.Login_Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
